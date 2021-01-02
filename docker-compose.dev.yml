@@ -1,7 +1,7 @@
 version: "3.9"
 services:
-    crab:
-        container_name: crab_backend
+    crab_dev:
+        container_name: crab_backend_dev
         build:
             context: ./Crab
             dockerfile: Dockerfile
@@ -10,8 +10,8 @@ services:
         volumes:
             - ~/crab_backend/logs:/logs
             - ~/crab_backend/data:/data
-    couchdb:
-        container_name: couch_database
+    couchdb_dev:
+        container_name: couch_database_dev
         ports:
             - "5985:5984"
         image: "couchdb:3"
