@@ -1,15 +1,5 @@
 version: "3.9"
 services:
-    crab_dev:
-        container_name: crab_backend_dev
-        build:
-            context: ./Crab
-            dockerfile: Dockerfile
-        ports:
-            - "8081:8080"
-        volumes:
-            - ~/crab_backend/logs:/logs
-            - ~/crab_backend/data:/data
     couchdb_dev:
         container_name: couch_database_dev
         ports:
@@ -20,4 +10,14 @@ services:
         environment:
             - COUCHDB_USER=${DB_USERNAME}
             - COUCHDB_PASSWORD=${DB_PASSWORD}
+    crab_dev:
+        container_name: crab_backend_dev
+        build:
+            context: ./Crab
+            dockerfile: Dockerfile
+        ports:
+            - "8081:8080"
+        volumes:
+            - ~/crab_backend/logs:/logs
+            - ~/crab_backend/data:/data
 
