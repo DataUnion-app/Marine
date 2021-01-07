@@ -6,7 +6,7 @@ services:
                 - "5984:5984"
         image: "couchdb:3"
         volumes:
-                - ~/couchdb/data:/opt/couchdb/data
+                - ~/crab_test_backend/couchdb/data:/opt/couchdb/data
         environment:
                 - COUCHDB_USER=${DB_USERNAME}
                 - COUCHDB_PASSWORD=${DB_PASSWORD}
@@ -18,6 +18,6 @@ services:
         ports:
             - "8080:8080"
         volumes:
-            - ~/crab_backend/logs:/logs
-            - ~/crab_backend/data:/data
+            - ~/crab_test_backend/logs:/home/appuser/app/logs
+            - ~/crab_test_backend/data:/data
 
