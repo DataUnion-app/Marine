@@ -11,7 +11,8 @@ The ecosystem/repository where all our sea creatures/components come together to
 6. source env/bin/activate
 7. Create `properties.ini` in `Crab/` folder and add database credentials.
 8. Create `.env` file from `.sample_env` and add database credentials.
-9. Start environment
+9. `cp ./config/Dockerfile_Mantis ./Mantis/Dockerfile`
+10. Start environment
 
    a. Dev: `docker-compose  -f docker-compose.dev.yml --env-file .env up -d`
 
