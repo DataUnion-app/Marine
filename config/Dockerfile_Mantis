@@ -1,13 +1,13 @@
-FROM node:12.18.1
+FROM node:15.5.1
 ENV NODE_ENV=production
 
-WORKDIR /app
+WORKDIR /
+COPY . .
 
 COPY ["package.json", "package-lock.json*", "./"]
 
-RUN npm install --production
-RUN npm audit fix --production
+RUN npm install
+RUN npm audit fix --legacy-peer-deps
+RUN npm run build
 
-COPY . .
-
-CMD [ "npm", "start --production" ]
+CMD [ "npm", "run", "serve" ]
