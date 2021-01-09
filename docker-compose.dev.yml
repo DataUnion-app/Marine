@@ -20,4 +20,10 @@ services:
         volumes:
             - ~/crab_backend/logs:/home/appuser/app/logs
             - ~/crab_backend/data:/data
-
+    mantis_dev:
+        container_name: mantis_frontend_dev
+        build:
+            context: ./Mantis
+            dockerfile: Dockerfile
+        ports:
+            - "8001:8000"
