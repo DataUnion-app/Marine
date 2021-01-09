@@ -10,4 +10,4 @@ RUN npm audit fix --production
 
 COPY . .
 
-CMD [ "npm", "start" ]
+CMD [ "npm", "start --production" ]
