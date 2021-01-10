@@ -1,4 +1,4 @@
-FROM node:15.5.1
+FROM node:14.15.2
 ENV NODE_ENV=production
 
 WORKDIR /
@@ -10,4 +10,4 @@ RUN npm install
 RUN npm audit fix --legacy-peer-deps
 RUN npm run build
 
-CMD [ "npm", "run", "serve" ]
+CMD [ "npm", "start"]

@@ -3,6 +3,7 @@ The ecosystem/repository where all our sea creatures/components come together to
 
 # Setup
 
+## Inital setup
 1. Clone the repository
 2. `git submodule init`
 3. `git submodule update`
@@ -12,9 +13,14 @@ The ecosystem/repository where all our sea creatures/components come together to
 7. Create `properties.ini` in `Crab/` folder and add database credentials.
 8. Create `.env` file from `.sample_env` and add database credentials.
 9. `cp ./config/Dockerfile_Mantis ./Mantis/Dockerfile`
-10. Start environment
 
-   a. Dev: `docker-compose  -f docker-compose.dev.yml --env-file .env up -d`
+## Start environment
 
-   b. Test: `docker-compose  -f docker-compose.test.yml --env-file .env up -d`
+1. Dev: `docker-compose  -f docker-compose.dev.yml --env-file .env up -d`
+2. Test: `docker-compose  -f docker-compose.test.yml --env-file .env up -d`
+
+## Stop environment
+
+1. Dev: `docker-compose -f docker-compose.dev.yml down`
+2. Test: `docker-compose -f docker-compose.test.yml down`
 
