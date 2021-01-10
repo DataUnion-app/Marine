@@ -6,10 +6,12 @@ services:
                 - "5984:5984"
         image: "couchdb:3"
         volumes:
-                - ~/crab_test_backend/couchdb/data:/opt/couchdb/data
+                - ~/crab_backend_test/couchdb/data:/opt/couchdb/data
         environment:
                 - COUCHDB_USER=${DB_USERNAME}
                 - COUCHDB_PASSWORD=${DB_PASSWORD}
+        networks:
+                - crab_test_network
     crab_test:
         container_name: crab_backend_test
         build:
@@ -18,8 +20,10 @@ services:
         ports:
             - "8080:8080"
         volumes:
-            - ~/crab_test_backend/logs:/home/appuser/app/logs
-            - ~/crab_test_backend/data:/data
+            - ~/crab_backend_test/logs:/home/appuser/app/logs
+            - ~/crab_backend_test/data:/home/appuser/app/data
+    networks:
+            - crab_test_network
     mantis_dev:
         container_name: mantis_frontend_dev
         build:
@@ -27,4 +31,8 @@ services:
             dockerfile: Dockerfile
         ports:
             - "8000:8000"
-
+        networks:
+            - crab_test_network
+networks:
+     crab_test_network:
+        name: test_n
