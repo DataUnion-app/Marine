@@ -10,6 +10,8 @@ services:
         environment:
                 - COUCHDB_USER=${DB_USERNAME}
                 - COUCHDB_PASSWORD=${DB_PASSWORD}
+        networks:
+                - crab_test_network
     crab_test:
         container_name: crab_backend_test
         build:
@@ -20,4 +22,8 @@ services:
         volumes:
             - ~/crab_backend_test/logs:/home/appuser/app/logs
             - ~/crab_backend_test/data:/home/appuser/app/data
-
+        networks:
+            - crab_test_network
+networks:
+     crab_test_network:
+        name: test_n
