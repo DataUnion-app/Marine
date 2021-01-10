@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+    couchdb_prod:
+        container_name: couch_database_prod
+        ports:
+            - "9001:5984"
+        image: "couchdb:3"
+        volumes:
+            - ~/crab_backend_prod/couchdb/data:/opt/couchdb/data
+        environment:
+            - COUCHDB_USER=${DB_USERNAME}
+            - COUCHDB_PASSWORD=${DB_PASSWORD}
+    crab_dev:
+        container_name: crab_backend_prod
+        build:
+            context: ./Crab
+            dockerfile: Dockerfile
+        ports:
+            - "9000:8080"
+        volumes:
+            - ~/crab_backend_prod/logs:/home/appuser/app/logs
+            - ~/crab_backend_prod/data:/home/appuser/app/data
+

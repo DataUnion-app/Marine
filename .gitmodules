@@ -1,0 +1,3 @@
+[submodule "Crab"]
+	path = Crab
+	url = https://github.com/DataUnion-app/Crab.git
