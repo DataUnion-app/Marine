@@ -10,7 +10,7 @@ services:
         environment:
             - COUCHDB_USER=${DB_USERNAME}
             - COUCHDB_PASSWORD=${DB_PASSWORD}
-    crab_dev:
+    crab_prod:
         container_name: crab_backend_prod
         build:
             context: ./Crab
