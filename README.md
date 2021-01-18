@@ -24,3 +24,8 @@ The ecosystem/repository where all our sea creatures/components come together to
 1. Dev: `docker-compose -f docker-compose.dev.yml down`
 2. Test: `docker-compose -f docker-compose.test.yml down`
 
+# 🏛 License
+```text
+Copyright 2021 DataUnion.app
+See the LICENSE file for the license of this code.
+```
