@@ -1,0 +1,30 @@
+version: "3.9"
+services:
+    couchdb_dev:
+        container_name: couch_database_dev
+        ports:
+            - "5985:5984"
+        image: "couchdb:3"
+        volumes:
+            - ~/crab_backend_dev/couchdb/data:/opt/couchdb/data
+        environment:
+            - COUCHDB_USER=${DB_USERNAME}
+            - COUCHDB_PASSWORD=${DB_PASSWORD}
+    crab_dev:
+        container_name: crab_backend_dev
+        build:
+            context: ./Crab
+            dockerfile: Dockerfile
+        ports:
+            - "8081:8080"
+        volumes:
+            - ~/crab_backend_dev/logs:/home/appuser/app/logs
+            - ~/crab_backend_dev/data:/home/appuser/app/data
+    mantis_dev:
+        container_name: mantis_frontend_dev
+        build:
+            context: ./Mantis
+            dockerfile: Dockerfile
+        ports:
+            - "8001:8000"
+

@@ -3,6 +3,7 @@ The ecosystem/repository where all our sea creatures/components come together to
 
 # Setup
 
+## Inital setup
 1. Clone the repository
 2. `git submodule init`
 3. `git submodule update`
@@ -11,4 +12,20 @@ The ecosystem/repository where all our sea creatures/components come together to
 6. source env/bin/activate
 7. Create `properties.ini` in `Crab/` folder and add database credentials.
 8. Create `.env` file from `.sample_env` and add database credentials.
-9. `docker-compose --env-file .env up`
+9. `cp ./config/Dockerfile_Mantis ./Mantis/Dockerfile`
+
+## Start environment
+
+1. Dev: `docker-compose  -f docker-compose.dev.yml --env-file .env up -d`
+2. Test: `docker-compose  -f docker-compose.test.yml --env-file .env up -d`
+
+## Stop environment
+
+1. Dev: `docker-compose -f docker-compose.dev.yml down`
+2. Test: `docker-compose -f docker-compose.test.yml down`
+
+# 🏛 License
+```text
+Copyright 2021 DataUnion.app
+See the LICENSE file for the license of this code.
+```

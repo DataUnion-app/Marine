@@ -1,3 +1,6 @@
 [submodule "Crab"]
 	path = Crab
 	url = https://github.com/DataUnion-app/Crab.git
+[submodule "Mantis"]
+	path = Mantis
+	url = https://github.com/DataUnion-app/Mantis.git
