@@ -10,6 +10,8 @@ services:
         environment:
             - COUCHDB_USER=${DB_USERNAME}
             - COUCHDB_PASSWORD=${DB_PASSWORD}
+        networks:
+            - crab_dev_network
     crab_dev:
         container_name: crab_backend_dev
         build:
@@ -20,11 +22,18 @@ services:
         volumes:
             - ~/crab_backend_dev/logs:/home/appuser/app/logs
             - ~/crab_backend_dev/data:/home/appuser/app/data
-    mantis_dev:
-        container_name: mantis_frontend_dev
-        build:
-            context: ./Mantis
-            dockerfile: Dockerfile
-        ports:
-            - "8001:8000"
+        networks:
+            - crab_dev_network
+#    mantis_dev:
+#        container_name: mantis_frontend_dev
+#        build:
+#            context: ./Mantis
+#            dockerfile: Dockerfile
+#        ports:
+#            - "8001:8000"
+#        networks:
+#            - crab_dev_network
+networks:
+     crab_dev_network:
+        name: network_crab_dev
 
